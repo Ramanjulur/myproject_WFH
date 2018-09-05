@@ -1,0 +1,10 @@
+- hosts: all
+  user: Ram
+  sudo: yes
+  gather_facts: no
+  tasks:
+    - name: review the server
+      script: /home/Ram/myproject/health.sh
+      register: output
+
+    - debug: var=output.stdout_lines
